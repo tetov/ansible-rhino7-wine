@@ -1,0 +1,6 @@
+---
+- name: test on localhost
+  hosts: localhost
+  connection: local
+  roles:
+  - tetov.rhino7_wine

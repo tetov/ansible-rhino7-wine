@@ -1,0 +1,24 @@
+---
+- name: install deps
+  become: true
+  ansible.builtin.package:
+    name:
+      # - lutris
+      - wine
+      - winetricks
+    state: present
+
+- name: create dir for wine prefix
+  ansible.builtin.file:
+    path: "{{ wine_prefix_dir }}/{{ wine_prefix_name }}"
+    state: directory
+
+- name: create prefix
+  ansible.builtin.command: winetricks --unattended dotnet48 corefonts
+  environment:
+    WINEPREFIX: "{{ wine_prefix_dir }}/{{ wine_prefix_name }}"
+
+- name: install
+  ansible.builtin.command: wine {{ rhino_exe }} -package -quiet
+  environment:
+    WINEPREFIX: "{{ wine_prefix_dir }}/{{ wine_prefix_name }}"

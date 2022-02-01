@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include ansible-rhino7-wine"
+      include_role:
+        name: "ansible-rhino7-wine"

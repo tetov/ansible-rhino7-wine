@@ -1,0 +1,4 @@
+---
+rhino_exe: "{{ role_path }}/files/rhino_en-us_7.13.21348.13001.exe"
+wine_prefix_dir: "{{ ansible_user_dir }}/.wine_prefix"
+wine_prefix_name: rhino7
